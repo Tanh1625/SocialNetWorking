@@ -14,42 +14,22 @@ public class SocialNetwork {
     this.graph = new SocialGraph();
   }
 
-  /**
-   * Adds a user to the social network.
-   *
-   * @param user the user to add.
-   */
+  
   public void addUser(User user) {
     graph.addUser(user);
   }
 
-  /**
-   * Adds a friendship between two users.
-   *
-   * @param user1 the first user.
-   * @param user2 the second user.
-   */
+ 
   public void addFriendship(User user1, User user2) {
     graph.addFriendship(user1, user2);
   }
 
-  /**
-   * Gets the friends of a user.
-   *
-   * @param user the user whose friends to retrieve.
-   * @return a list of the user's friends.
-   */
+  
   public List<User> getFriends(User user) {
     return graph.getFriends(user);
   }
 
-  /**
-   * Recommends friends for a given user.
-   *
-   * @param user               the user to recommend friends for.
-   * @param maxRecommendations the maximum number of recommendations to return.
-   * @return a list of recommended users, sorted by relevance.
-   */
+
   public List<User> recommendFriends(User user, int maxRecommendations) {
     List<User> friends = graph.getFriends(user);
     List<User> allUsers = graph.getAllUsers();
@@ -76,13 +56,7 @@ public class SocialNetwork {
     return topRecommendations;
   }
 
-  /**
-   * Counts the number of mutual friends between two users.
-   *
-   * @param user1 the first user.
-   * @param user2 the second user.
-   * @return the number of mutual friends.
-   */
+  
   private int countMutualFriends(User user1, User user2) {
     List<User> friends1 = graph.getFriends(user1);
     List<User> friends2 = graph.getFriends(user2);
@@ -95,11 +69,7 @@ public class SocialNetwork {
     return count;
   }
 
-  /**
-   * Gets all users in the social network.
-   *
-   * @return a list of all users.
-   */
+  
   public List<User> getAllUsers() {
     return graph.getAllUsers();
   }

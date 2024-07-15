@@ -105,7 +105,19 @@ public class Data {
             System.out.println("Enter the name of his/her friend: ");
             String friendName = sc.nextLine();
             User friend = new User(friendName);
-            if (!allUsers.contains(friend)) {
+//            if (!allUsers.contains(friend)) {
+//                socialNetwork.addUser(friend);
+//            }
+            boolean check = true;
+            for (int i = 0; i < allUsers.size(); i++) {
+                if (!allUsers.get(i).getUsername().equalsIgnoreCase(friendName)) {
+                    check = false;
+                } else {
+                    check = true;
+                    break;
+                }
+            }
+            if (!check) {
                 socialNetwork.addUser(friend);
             }
 
@@ -135,22 +147,21 @@ public class Data {
                 IConstant.REGEX_USER_NAME
         );
         List<User> allUsers = socialNetwork.getAllUsers();
-        
+
         for (int i = 0; i < allUsers.size(); i++) {
-            if(allUsers.get(i).getUsername().equalsIgnoreCase(username)){
+            if (allUsers.get(i).getUsername().equalsIgnoreCase(username)) {
                 allUsers.remove(i);
             }
         }
         System.out.println("\n----List after deletion----");
         for (int i = 0; i < allUsers.size(); i++) {
-            System.out.println("user "+ (i+1)+allUsers.get(i));
-            
+            System.out.println("user " + (i + 1) + allUsers.get(i));
+
         }
         System.out.println("-------------------------");
-        listRemove= allUsers;
+        listRemove = allUsers;
         return listRemove;
 
     }
-    
 
 }

@@ -11,21 +11,12 @@ public class SocialGraph {
     this.vertex = new HashMap<>();
   }
 
-  /**
-   * Adds a user to the social graph.
-   *
-   * @param user the user to add.
-   */
+  
   public void addUser(User user) {
     vertex.putIfAbsent(user.getUsername(), new SocialVertex(user));
   }
 
-  /**
-   * Adds a friendship between two users.
-   *
-   * @param user1 the first user.
-   * @param user2 the second user.
-   */
+  
   public void addFriendship(User user1, User user2) {
     SocialVertex n1 = vertex.get(user1.getUsername());
     SocialVertex n2 = vertex.get(user2.getUsername());
@@ -66,7 +57,7 @@ public class SocialGraph {
         Set<SocialVertex> visited = new HashSet<>();
         Queue<SocialVertex> queue = new LinkedList<>();
 
-        // Bắt đầu từ tất cả các đỉnh (vì đồ thị có thể không liên thông)
+        
         for (SocialVertex node : vertex.values()) {
             if (!visited.contains(node)) {
                 queue.add(node);
